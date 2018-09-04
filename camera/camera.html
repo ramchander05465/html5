@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <titl
+</head>
+<body>
+<center>
+	<video id="vidDisplay" autoplay="true">
+		No Video support is you browser
+	</video>
+	<script type="text/javascript">
+		navigator.getUserVideo = navigator.getUserVideo || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+		if(navigator.getUserVideo){
+			navigator.getUserVideo({video:true}, handleVideo, videoError);
+		}
+		
+		function handleVideo(stream){
+			document.querySelector("#vidDisplay").src = window.URL.createObjectURL(stream);
+		}
+		
+		function videoError(e){
+			alert('There has some problem ...')
+		}
+	</script>
+</center>
+<body>
+<html>
